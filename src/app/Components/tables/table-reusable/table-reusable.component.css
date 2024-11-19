@@ -1,0 +1,15 @@
+table {
+    padding: 10px 20px;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.mat-mdc-header-row {
+    color: inherit;
+}
+
+.mat-mdc-row {
+    color: inherit;
+}

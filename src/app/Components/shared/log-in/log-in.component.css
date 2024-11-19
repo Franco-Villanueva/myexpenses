@@ -1,0 +1,12 @@
+.btn{
+    display: flex;
+    place-items: center;
+}
+
+.imgPerfil {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--color-background-light);
+    margin-right: 10px;
+}

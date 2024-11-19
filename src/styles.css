@@ -1,1 +1,79 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/cdk/overlay-prebuilt.css';
+
+
+ /* Variables de colores */
+:root {
+    --color-primary: #3F51B5; /* Índigo */
+    --color-secondary: #E91E63; /* Rosa */
+    --color-tertiary: #FF9800; /* Naranja, para acentos */
+    --color-white: #FFFFFF; /* Blanco */
+    --color-black: #000000; /* Negro */
+    
+    /* Fondos para temas claro y oscuro */
+    --color-background-light: #F5F5F5; /* Gris claro para fondo en modo claro */
+    --color-background-dark: #121212; /* Gris oscuro para fondo en modo oscuro */
+    --color-surface-light: #FFFFFF; /* Blanco para superficies en modo claro */
+    --color-surface-dark: #1E1E1E; /* Gris oscuro para superficies en modo oscuro */
+    --color-text-light: #424242; /* Gris oscuro para texto en modo claro */
+    --color-text-dark: #E0E0E0; /* Gris claro para texto en modo oscuro */
+
+    --font-size-small: 12px;
+    --font-size-medium: 16px;
+    --font-size-large: 20px;
+    --font-size-xlarge: 24px;
+    --font-size-xxlarge: 35px;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+html, body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: var(--color-background-light);
+    color: var(--color-text-light);
+}
+
+/* Tema claro */
+body.light-theme {
+    background-color: var(--color-background-light);
+    color: var(--color-text-light);
+}
+
+/* Tema oscuro */
+body.dark-theme {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-dark);
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+a, td, th {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, th, td {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo para los inputs y textareas */
+input, textarea, select, td, th{
+    outline: none;
+    border: none;
+    background: none;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

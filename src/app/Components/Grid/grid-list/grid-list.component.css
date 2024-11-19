@@ -1,0 +1,73 @@
+:host {
+  width: 100%;           /* Ocupará el 100% del contenedor, pero con un límite */      /* Centra el componente horizontalmente */
+}
+
+.dashboard-container { 
+  display: flex; 
+  flex-direction: column; 
+  padding: 40px 60px;
+  width: 100%;
+}
+    
+  .month {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .custom-form-field {
+    width: 120px;
+    height: 70px;
+  }
+  
+  .gridContainer {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 10px;
+  }
+  
+  .grid-tile {
+    height: 180px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.359);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 15px;
+  }
+  
+  
+  .grid-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-large);
+  }
+  
+  .number {
+    font-size: var(--font-size-xxlarge);
+    font-weight: 500;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-container{
+      display: block; 
+      padding: 40px;
+    }
+
+  
+    .grid-title {
+        font-size: var(--font-size-large);
+    }
+  
+    .number {
+        font-size: var(--font-size-xxlarge);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .grid-tile {
+        width: 100%;
+    }
+  }
+  

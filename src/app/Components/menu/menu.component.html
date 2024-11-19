@@ -1,0 +1,19 @@
+<section class="container">
+    <h2>Menú</h2>
+    <ul class="sub-container">
+        @for (item of menu; track item) {
+        <li><a routerLink={{item.value}} routerLinkActive="active" ariaCurrentWhenActive="page">{{item.viewValue}}</a></li>
+    } 
+    </ul>
+    
+</section>
+
+<!-- <section class="container-mobile">
+    <h2>M</h2>
+    <div class="sub-container-mobile">
+        @for (item of menu; track item) {
+        <span>{{item.viewValue.split('')[0]}} </span>
+    } 
+    </div>
+    
+</section> -->

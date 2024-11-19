@@ -1,0 +1,45 @@
+.container {
+    left: 0; 
+    width: 250px; /* Ajusta el ancho según tus necesidades */ 
+    height: auto; /* Altura completa de la ventana menos la altura de la barra de navegación */ 
+    padding: 40px; 
+}
+
+.container h2 {
+    margin-bottom: 20px;
+}
+
+.sub-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sub-container li a {
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sub-container li a:hover {
+    background-color: #e0e0e042;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .container {
+        display: none; /* Oculta el menú de escritorio */
+    }
+
+    .container-mobile {
+        display: block; /* Muestra el menú móvil */
+        padding: 20px 10px; /* Espaciado reducido */
+    }
+}
