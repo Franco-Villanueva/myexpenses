@@ -26,4 +26,8 @@
   .container {
     grid-template-columns: 1fr; /* Cambia a una sola columna en pantallas pequeñas */
   }
+
+  .chart-container{
+    height: auto;
+  }
 }

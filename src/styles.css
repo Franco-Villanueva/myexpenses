@@ -41,6 +41,11 @@ html, body {
     color: var(--color-text-light);
 }
 
+app-root {
+    display: block;
+    height: 100%;
+  }
+
 /* Tema claro */
 body.light-theme {
     background-color: var(--color-background-light);
@@ -74,6 +79,3 @@ input, textarea, select, td, th{
     border: none;
     background: none;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
