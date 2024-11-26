@@ -1,6 +1,6 @@
 
 :host {
-    width: 100%;           /* Ocupará el 100% del contenedor, pero con un límite */      /* Centra el componente horizontalmente */
+    width: 100%;
   }
   
   .dashboard-container { 
@@ -12,4 +12,12 @@
       
     .title {
         margin-bottom: 50px;
+    }
+
+
+    @media (max-width: 768px) {
+      .dashboard-container{
+        padding: 10px;
+      }
+
     }
