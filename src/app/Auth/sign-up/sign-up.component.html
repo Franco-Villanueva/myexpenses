@@ -2,21 +2,23 @@
     <img src="/assets/GSPe5QrbwAAbWWF (1) - copia.png" alt="Descripción de la imagen">
 
     <h2>Bienvenido</h2>
-  <form>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email">
-        <!-- <div class="error-message">
-          Please enter a valid email address.
-        </div> -->
+  <form [formGroup]="userForm" (submit)="handlerSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="name" id="name" formControlName="name">
+
+      </div>
+      
+      <div class="form-group">
+        <label for="correo">Email</label>
+        <input type="email" id="correo" formControlName="correo">
+
       </div>
   
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password">
-        <!-- <div>
-          Password must be at least 6 characters long.
-        </div> -->
+        <input type="password" id="password" formControlName="password">
+
       </div>
       <button type="submit" class="btn btn-primary">Registrarse</button>
   </form>

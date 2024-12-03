@@ -1,23 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
-export default class SignUpComponent implements OnInit {
-  formulario: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
-  ngOnInit(): void {
-    // Creamos el formulario reactivo con los campos y validaciones
-    this.formulario = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      telefono: ['', Validators.pattern('[0-9]{10}')],
-    });
+export default class SignUpComponent {
+  userForm: FormGroup;
+  name: FormControl;
+  correo: FormControl;
+  password: FormControl;
+
+  constructor() {
+    this.name = new FormControl('');
+    this.correo = new FormControl('');
+    this.password = new FormControl('');
+
+    this.userForm = new FormGroup({
+      name: this.name,
+      correo: this.correo,
+      password: this.password
+      
+    })
   }
-  // Aquí irían los métodos para manejar el envío del formulario y las validaciones
+  
+  handlerSubmit():void {
+    console.log(this.userForm.value)
+  }
 }
