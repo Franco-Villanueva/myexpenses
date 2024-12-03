@@ -2,25 +2,56 @@
     <img src="/assets/GSPe5QrbwAAbWWF (1) - copia.png" alt="Descripción de la imagen">
 
     <h2>Bienvenido</h2>
-  <form [formGroup]="userForm" (submit)="handlerSubmit()">
+  <form [formGroup]="form" (submit)="onSubmit()">
       <div class="form-group">
         <label for="name">Name</label>
         <input type="name" id="name" formControlName="name">
-
+        @if (form.get("name")?.invalid && form.get("name")?.touched) {
+          @if (form.get("name")?.hasError("required")) {
+            <span class="error-message">el Nombre es obligatorio</span>
+          }
+          @else if (form.get("name")?.hasError("pattern")) {
+            <span class="error-message">ingresa un nombre valido</span>
+          }
+        }
       </div>
       
       <div class="form-group">
         <label for="correo">Email</label>
         <input type="email" id="correo" formControlName="correo">
-
+        @if (form.get("correo")?.invalid && form.get("correo")?.touched) {
+          @if (form.get("correo")?.hasError("required")) {
+            <span class="error-message">el Email es obligatorio</span>
+          } @else if (form.get("correo")?.invalid) {
+            <span class="error-message">ingresa un correo valido</span>
+          }
+        }
       </div>
   
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" id="password" formControlName="password">
-
+        @if (form.get("password")?.invalid && form.get("password")?.touched) {
+          @if (form.get("password")?.hasError("required")) {
+            <span class="error-message">la Contraseña es obligatoria</span>
+          }
+          @else if (form.get("password")?.invalid) {
+            <span class="error-message">ingresa una Contraseña valida</span>
+          }
+        }
       </div>
-      <button type="submit" class="btn btn-primary">Registrarse</button>
+
+      <div class="form-group">
+        <label for="password2">Repeat Password</label>
+        <input type="password" id="password2" formControlName="password2">
+        @if (form.get("password2")?.invalid && form.get("password")?.touched) {
+          @if (form.get("password2")?.hasError("required")) {
+            <span class="error-message">la Contraseña es obligatoria</span>
+          }
+        }
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Registrarse</button>
   </form>
 
   <div class="separator">
