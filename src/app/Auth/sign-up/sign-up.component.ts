@@ -1,46 +1,43 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../data-acess/auth.service';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.css'
+  styleUrl: './sign-up.component.css',
 })
 export default class SignUpComponent {
+  _formBuilder = inject(FormBuilder);
+  _authService = inject(AuthService);
+  _router = inject(Router);
 
-  fb = inject(FormBuilder)
-
-  form: FormGroup = this.fb.group({
-    name: [
-      '', 
-      [
-        Validators.required, 
-        Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+(?:[\\s-][a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+){1,5}$')
-      ]
-    ],
-    correo: [
-      '', 
-      [
-        Validators.required, 
-        Validators.email
-      ]
-    ],
-    password: [
-      '', 
-      [
-        Validators.required, 
-        Validators.minLength(8)
-      ]
-    ],
-    password2: [
-      '', 
-      [
-        Validators.required
-      ]
-    ]
-  }, { validator: this.passwordMatchValidator });
+  form: FormGroup = this._formBuilder.group(
+    {
+      name: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+(?:[\\s-][a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+)*$'
+          ),
+        ],
+      ],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      password2: ['', [Validators.required]],
+    },
+    { validator: this.passwordMatchValidator }
+  );
 
   passwordMatchValidator(group: FormGroup) {
     const password = group.get('password')?.value;
@@ -48,8 +45,23 @@ export default class SignUpComponent {
     return password === password2 ? null : { notMatching: true };
   }
 
-  onSubmit():void {
-    console.log('Form Submitted ->>>',this.form.value)
+  async onSubmit() {
+    if(this.form.invalid) return;
+
+    try {
+
+      const { email, password } = this.form.value;
+
+      await this._authService.signUp({ email, password });
+
+      this._router.navigate(['/home']);
+
+      toast.success('Usuario creado correctamente')
+
+    } catch (error) {
+      toast.error('Ocurrio un error')
+    }
+
   }
 
 }

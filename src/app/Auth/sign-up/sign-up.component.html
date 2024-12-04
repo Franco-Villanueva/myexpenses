@@ -17,13 +17,13 @@
       </div>
       
       <div class="form-group">
-        <label for="correo">Email</label>
-        <input type="email" id="correo" formControlName="correo">
-        @if (form.get("correo")?.invalid && form.get("correo")?.touched) {
-          @if (form.get("correo")?.hasError("required")) {
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email">
+        @if (form.get("email")?.invalid && form.get("email")?.touched) {
+          @if (form.get("email")?.hasError("required")) {
             <span class="error-message">el Email es obligatorio</span>
-          } @else if (form.get("correo")?.invalid) {
-            <span class="error-message">ingresa un correo valido</span>
+          } @else if (form.get("email")?.invalid) {
+            <span class="error-message">ingresa un Email valido</span>
           }
         }
       </div>
