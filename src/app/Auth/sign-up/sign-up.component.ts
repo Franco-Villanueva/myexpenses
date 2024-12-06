@@ -8,11 +8,12 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from '../data-acess/auth.service';
 import { toast } from 'ngx-sonner';
+import { GoogleButtonComponent } from '../ui/google-button/google-button.component';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, GoogleButtonComponent],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css',
 })
@@ -23,15 +24,6 @@ export default class SignUpComponent {
 
   form: FormGroup = this._formBuilder.group(
     {
-      name: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            '^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+(?:[\\s-][a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+)*$'
-          ),
-        ],
-      ],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       password2: ['', [Validators.required]],
@@ -59,9 +51,23 @@ export default class SignUpComponent {
       toast.success('Usuario creado correctamente')
 
     } catch (error) {
+      console.log(error)
       toast.error('Ocurrio un error')
     }
 
+  }
+
+  async submitWithGoogle () {
+    try {
+      await this._authService.signInWithGoogle();
+
+      this._router.navigate(['/home']);
+
+      toast.success('Usuario creado correctamente')
+    } catch (error) {
+      console.log(error)
+      toast.error('Ocurrio un error') 
+    }
   }
 
 }
