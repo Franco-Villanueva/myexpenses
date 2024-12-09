@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -14,6 +14,7 @@ import { GoogleButtonComponent } from '../ui/google-button/google-button.compone
   selector: 'app-sign-up',
   standalone: true,
   imports: [ReactiveFormsModule, GoogleButtonComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css',
 })

@@ -1,1 +1,47 @@
-<p>sign-in works!</p>
+<div class="modal">
+    <img src="/assets/GSPe5QrbwAAbWWF (1) - copia.png" alt="Descripción de la imagen">
+
+    <h2>Iniciar Sesion</h2>
+  <form [formGroup]="form" (submit)="onSubmit()">
+     
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email">
+        @if (form.get("email")?.invalid && form.get("email")?.touched) {
+          @if (form.get("email")?.hasError("required")) {
+            <span class="error-message" >el Email es obligatorio</span>
+          } @else if (form.get("email")?.invalid) {
+            <span class="error-message">ingresa un Email valido</span>
+          }
+        }
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password">
+        @if (form.get("password")?.invalid && form.get("password")?.touched) {
+          @if (form.get("password")?.hasError("required")) {
+            <span class="error-message">la Contraseña es obligatoria</span>
+          }
+          @else if (form.get("password")?.invalid) {
+            <span class="error-message">ingresa una Contraseña valida</span>
+          }
+        }
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Registrarse</button>
+  </form>
+
+  <div class="separator">
+    <span>or</span>
+  </div>
+
+  <app-google-button (onClick)="submitWithGoogle()" />
+
+  <p class="signup-link">
+    Don't have an account? <a href="#">Sign up</a>
+  </p>
+
+</div>
+
+

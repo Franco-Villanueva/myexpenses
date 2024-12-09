@@ -1,7 +1,10 @@
 
 <app-navbar />
-<div class="container"> 
-    <app-menu></app-menu> 
+<div class="container">
+    @if (router != '/auth/sign-in' && router != '/auth/sign-up') {
+        <app-menu></app-menu> 
+    }
+    
     <router-outlet />
     <ngx-sonner-toaster />
     <!-- <app-grid-list class="content"></app-grid-list>  -->

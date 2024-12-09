@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TableReusableComponent } from "./table-reusable/table-reusable.component";
 
 export interface PeriodicElement {
@@ -18,6 +18,7 @@ export interface AnimalElement {
   selector: 'app-tables',
   standalone: true,
   imports: [TableReusableComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './tables.component.html',
   styleUrl: './tables.component.css'
 })

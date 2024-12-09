@@ -15,4 +15,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class NavbarComponent {
   title = 'navbar'
 
+  // async submitWithGoogle () {
+  //   try {
+  //     await this._authService.signInWithGoogle();
+
+  //     this._router.navigate(['/home']);
+
+  //     toast.success('Usuario creado correctamente')
+  //   } catch (error) {
+  //     console.log(error)
+  //     toast.error('Ocurrio un error') 
+  //   }
+  // }
 }

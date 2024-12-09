@@ -1,14 +1,14 @@
 import { Component, output, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-google-button',
+  selector: 'app-logout-button',
   standalone: true,
   imports: [],
+  templateUrl: './logout-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './google-button.component.html',
-  styleUrl: './google-button.component.css'
+  styleUrl: './logout-button.component.css'
 })
-export class GoogleButtonComponent {
+export class LogoutButtonComponent {
 
   onClick = output<void>();
 
