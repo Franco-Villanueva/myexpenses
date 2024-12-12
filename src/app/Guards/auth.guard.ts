@@ -31,7 +31,7 @@ export const publicGuard: CanActivateFn = () => {
     map((state) => {
       console.log(state)
       if (state) {
-        router.navigate(['/home']);
+        router.navigate(['dashboard/home']);
         return false;
       } else {
         return true;

@@ -28,10 +28,12 @@ export class ToggleComponent implements OnInit {
     this.applyTheme();
   }
 
-  applyTheme(): void {
+  private applyTheme(): void {
     if (this.darkMode) {
       document.body.classList.add('dark-theme');
+      document.body.classList.remove('light-theme');
     } else {
+      document.body.classList.add('light-theme');
       document.body.classList.remove('dark-theme');
     }
   }

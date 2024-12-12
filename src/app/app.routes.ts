@@ -1,23 +1,12 @@
 import { Routes } from '@angular/router';
-import { privateGuard, publicGuard } from './Guards/auth.guard'; // Importa el guard
-import SettingComponent from './Components/setting/setting.component';
-import TablesComponent from './Components/tables/tables.component';
-import GridListComponent from './Components/Grid/grid-list/grid-list.component';
+import { privateGuard, publicGuard } from './Guards/auth.guard';
+
 
 export const routes: Routes = [
   {
-    path: 'home',
-    component: GridListComponent,
-    canActivate: [privateGuard], // Aplica el guard para proteger esta ruta
-  },
-  {
-    path: 'table',
-    component: TablesComponent,
-    canActivate: [privateGuard], // Aplica el guard para proteger esta ruta
-  },
-  {
-    path: 'settings',
-    component: SettingComponent,
+    path: 'dashboard',
+    loadComponent: () => import('./Shared/Ui/layout.component'),
+    loadChildren: () => import('./Components/dashboard.routes'),
     canActivate: [privateGuard], // Aplica el guard para proteger esta ruta
   },
   {
@@ -27,7 +16,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'dashboard/home',
     pathMatch: 'full',
   },
 ];

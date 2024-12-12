@@ -14,7 +14,7 @@ export class MenuComponent {
 
   menu: any[] = [
     { value: 'home', viewValue: 'Dashboard' },
-    { value: 'table', viewValue: 'Table' },
+    { value: 'tables', viewValue: 'Table' },
     { value: 'settings', viewValue: 'Setting' },
   ];
 }

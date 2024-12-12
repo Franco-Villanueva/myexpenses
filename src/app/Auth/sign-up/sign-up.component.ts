@@ -47,7 +47,7 @@ export default class SignUpComponent {
 
       await this._authService.signUp({ email, password });
 
-      this._router.navigate(['/home']);
+      this._router.navigate(['dashboard/home']);
 
       toast.success('Usuario creado correctamente')
 
@@ -62,7 +62,7 @@ export default class SignUpComponent {
     try {
       await this._authService.signInWithGoogle();
 
-      this._router.navigate(['/home']);
+      this._router.navigate(['dashboard/home']);
 
       toast.success('Usuario creado correctamente')
     } catch (error) {

@@ -1,8 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/cdk/overlay-prebuilt.css';
 
-
- /* Variables de colores */
+/* Variables de colores */
 :root {
     --color-primary: #3F51B5; /* Índigo */
     --color-secondary: #E91E63; /* Rosa */
@@ -37,6 +36,10 @@
 html, body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
     background-color: var(--color-background-light);
     color: var(--color-text-light);
 }
@@ -44,7 +47,7 @@ html, body {
 app-root {
     display: block;
     height: 100%;
-  }
+}
 
 /* Tema claro */
 body.light-theme {
@@ -56,6 +59,14 @@ body.light-theme {
 body.dark-theme {
     background-color: var(--color-background-dark);
     color: var(--color-text-dark);
+}
+
+/* Media query para preferencia de sistema */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--color-background-dark);
+        color: var(--color-text-dark);
+    }
 }
 
 ul, ol, li {
@@ -74,8 +85,20 @@ button, th, td {
 }
 
 /* Estilo para los inputs y textareas */
-input, textarea, select, td, th{
+input, textarea, select, td, th {
     outline: none;
     border: none;
     background: none;
 }
+
+/* Ejemplo de estilos específicos para temas */
+body.light-theme .some-element {
+    background-color: var(--color-surface-light);
+    color: var(--color-text-light);
+}
+
+body.dark-theme .some-element {
+    background-color: var(--color-surface-dark);
+    color: var(--color-text-dark);
+}
+

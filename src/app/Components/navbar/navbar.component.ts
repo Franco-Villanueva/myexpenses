@@ -19,7 +19,7 @@ export class NavbarComponent {
   //   try {
   //     await this._authService.signInWithGoogle();
 
-  //     this._router.navigate(['/home']);
+  //     this._router.navigate(['dashboard/home']);
 
   //     toast.success('Usuario creado correctamente')
   //   } catch (error) {
