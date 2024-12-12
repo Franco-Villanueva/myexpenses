@@ -1,18 +1,41 @@
 import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
-import { AuthService } from '../Auth/data-acess/auth.service';
 import { Router } from '@angular/router';
+import { AuthStateService } from '../Shared/data-access/auth-state.service';
+import { map } from 'rxjs';
 
-export const authGuard: CanActivateFn = (route, state) => {
-  const _authService = inject(AuthService);
+export const privateGuard: CanActivateFn = () => {
+
+  const _authState = inject(AuthStateService);
   const router = inject(Router);
 
-  const user = _authService.getCurrentUser();
+  return _authState.authState$.pipe(
+    map((state) => {
+      console.log(state)
+      if (!state) {
+        router.navigate(['/auth/sign-in']);
+        return false;
+      } else {
+        return true;
+      }
+    })
+  );
 
-  if (user) {
-    return true; // Permite el acceso si el usuario está autenticado
-  } else {
-    router.navigate(['/auth/sign-in']); // Redirige al usuario al módulo de autenticación
-    return false; // Bloquea el acceso a la ruta
-  }
+};
+
+export const publicGuard: CanActivateFn = () => {
+  const _authState = inject(AuthStateService);
+  const router = inject(Router);
+
+  return _authState.authState$.pipe(
+    map((state) => {
+      console.log(state)
+      if (state) {
+        router.navigate(['/home']);
+        return false;
+      } else {
+        return true;
+      }
+    })
+  );  
 };

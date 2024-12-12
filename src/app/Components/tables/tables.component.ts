@@ -22,7 +22,7 @@ export interface AnimalElement {
   templateUrl: './tables.component.html',
   styleUrl: './tables.component.css'
 })
-export class TablesComponent {
+export default class TablesComponent {
   
   columnsToDisplayElements: string[] = ['position', 'name', 'weight', 'symbol'];
   elementData: PeriodicElement[] = [

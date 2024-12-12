@@ -26,7 +26,7 @@ interface Month {
   templateUrl: './grid-list.component.html',
   styleUrl: './grid-list.component.css'
 })
-export class GridListComponent {
+export default class GridListComponent {
 
   
 

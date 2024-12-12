@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ToggleComponent } from '../shared/toggle/toggle.component';
-import { LogInComponent } from "../shared/log-in/log-in.component";
+import { ToggleComponent } from '../Buttons/toggle/toggle.component';
+import { LogInComponent } from "../Buttons/log-in/log-in.component";
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 
