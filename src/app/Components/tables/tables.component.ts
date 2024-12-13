@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TableReusableComponent } from "./table-reusable/table-reusable.component";
+import { FormMovementComponent } from "./form-movement/form-movement.component";
 
 export interface PeriodicElement {
   name: string;
@@ -17,7 +18,7 @@ export interface AnimalElement {
 @Component({
   selector: 'app-tables',
   standalone: true,
-  imports: [TableReusableComponent],
+  imports: [TableReusableComponent, FormMovementComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './tables.component.html',
   styleUrl: './tables.component.css'

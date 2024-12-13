@@ -1,20 +1,28 @@
-
-
-
-
 <div class="dashboard-container">
-    <section class="title">
-        <h1>Tables</h1>
-    </section>
-    
-    <h4>Tabla de Elementos Periódicos</h4>
+  <section class="title">
+    <h1>Tables</h1>
+  </section>
 
-    
-    <app-table-reusable 
-    [displayedColumns]="columnsToDisplayElements" 
-    [dataSource]="elementData">
+  <div class="tables-container">
+    <h4>Tabla de Ingresos</h4>
+
+    <app-table-reusable
+      [displayedColumns]="columnsToDisplayElements"
+      [dataSource]="elementData"
+    >
     </app-table-reusable>
-
-
-
+    <app-form-movement />
   </div>
+
+  <div class="tables-container">
+    <h4>Tabla de gastos</h4>
+
+    <app-table-reusable
+      [displayedColumns]="columnsToDisplayElements"
+      [dataSource]="elementData"
+    >
+    </app-table-reusable>
+    <app-form-movement />
+  </div>
+
+</div>
