@@ -1,8 +1,9 @@
 <div class="dashboard-container">
   <section class="title">
     <h1>Tables</h1>
+    <app-form-movement  />
   </section>
-
+  
   <div class="tables-container">
     <h4>Tabla de Ingresos</h4>
 
@@ -11,7 +12,7 @@
       [dataSource]="elementData"
     >
     </app-table-reusable>
-    <app-form-movement />
+    
   </div>
 
   <div class="tables-container">
@@ -22,7 +23,6 @@
       [dataSource]="elementData"
     >
     </app-table-reusable>
-    <app-form-movement />
   </div>
 
 </div>

@@ -1,1 +1,5 @@
-<Button class="container"> Agregar Movimiento +</Button>
+<Button class="container" (click)="handlerClick()"> Agregar Movimiento +</Button>
+
+@if (isOpen) {
+    <app-modal />
+}

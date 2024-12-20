@@ -11,11 +11,13 @@
     }
       
     .title {
-        margin-bottom: 50px;
+      display: flex;
+      justify-content: space-between;
+        margin-bottom: 20px;
     }
 
     .tables-container{
-      margin-bottom: 50px;
+      margin-bottom: 20px;
     }
 
     .tables-container h4{

@@ -1,0 +1,56 @@
+/* Estilos para el fondo del modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  }
+  
+  /* Estilos para el contenido del modal */
+  .modal-content {
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    max-width: 500px; /* Ancho máximo */
+    width: 90%; /* Ancho relativo para pantallas pequeñas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    text-align: center; /* Centrar contenido */
+    animation: fadeIn 0.3s ease; /* Animación de aparición */
+  }
+  
+  /* Animación de entrada del modal */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Estilos para cerrar el modal */
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333; /* Color del botón de cierre */
+    transition: color 0.3s ease;
+  }
+  
+  .modal-close:hover {
+    color: #ff5c5c; /* Cambiar color al pasar el ratón */
+  }
+  
