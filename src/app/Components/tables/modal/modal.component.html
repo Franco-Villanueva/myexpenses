@@ -42,7 +42,7 @@
         <input type="number" formControlName="monto">
       </div>
 
-      <button type="button" class="btn btn-primary">Cancelar</button>
+      <button type="button" class="btn btn-primary" (click)="onCancel()">Cancelar</button>
       <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Crear</button>
     </form>
   </div>

@@ -15,4 +15,7 @@ export class FormMovementComponent {
     this.isOpen = true;
   }
 
+  closeModal() { 
+    this.isOpen = false; 
+  }
 }

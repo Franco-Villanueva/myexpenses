@@ -1,5 +1,5 @@
 <Button class="container" (click)="handlerClick()"> Agregar Movimiento +</Button>
 
 @if (isOpen) {
-    <app-modal />
+    <app-modal (close)="closeModal()" />
 }

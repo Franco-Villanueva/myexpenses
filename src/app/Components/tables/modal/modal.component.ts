@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
 import { toast } from 'ngx-sonner';
 
@@ -12,6 +12,8 @@ import { toast } from 'ngx-sonner';
 })
 export class ModalComponent {
   @Input() value: boolean = false;
+  @Output() close = new EventEmitter<void>();
+
   _formBuilder = inject(FormBuilder);
 
   categoriasGasto = [
@@ -52,5 +54,9 @@ export class ModalComponent {
         toast.error('Ocurrio un error')
       }
   
+    }
+
+    onCancel() {
+      this.close.emit(); 
     }
 }
