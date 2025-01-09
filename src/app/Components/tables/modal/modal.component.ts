@@ -48,7 +48,7 @@ export class ModalComponent {
         const { tipoActividad, categoria, monto } = this.form.value;
   
         toast.success('Actividad creada con exito')
-  
+        this.close.emit();
       } catch (error) {
         console.log(error)
         toast.error('Ocurrio un error')

@@ -1,27 +1,36 @@
 <div class="modal">
   <div class="modal-content">
     <form [formGroup]="form" (submit)="onSubmit()">
+      <h3>Crear Movimiento</h3>
       <div class="form-group">
-        <span>Tipo de Actividad</span>
-        <input
-          type="radio"
-          id="ingreso"
-          value="ingreso"
-          formControlName="tipoActividad"
-        />
-        <label for="ingreso">Ingreso</label>
-
-        <input
-          type="radio"
-          id="gasto"
-          value="gasto"
-          formControlName="tipoActividad"
-        />
-        <label for="gasto">Gasto</label>
+        <label class="label-style">Tipo de Actividad</label>
+        <div class="sub-form">
+          <div>
+              <input
+            type="radio"
+            id="ingreso"
+            value="ingreso"
+            formControlName="tipoActividad"
+          />
+          <label for="ingreso">Ingreso</label>
+          </div>
+          
+          <div>
+            <input
+            type="radio"
+            id="gasto"
+            value="gasto"
+            formControlName="tipoActividad"
+          />
+          <label for="gasto">Gasto</label>
+          </div>
+          
+        </div>
+        
       </div>
 
       <div class="form-group">
-        <label for="categoria">Categoría</label>
+        <label class="label-style" for="categoria">Categoría</label>
         <select id="categoria" formControlName="categoria">
           <option value="default">--Seleccione una categoría--</option>
           @if (form.get('tipoActividad')?.value === 'gasto') {
@@ -38,12 +47,15 @@
       </div>
 
       <div class="form-group">
-        <label for="monto">Monto</label>
+        <label class="label-style" for="monto">Monto</label>
         <input type="number" formControlName="monto">
       </div>
 
-      <button type="button" class="btn btn-primary" (click)="onCancel()">Cancelar</button>
-      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Crear</button>
+      <div class="container-btn">
+      <button type="button" class="btn btn-cancel" (click)="onCancel()">Cancelar</button>
+      <button type="submit" class="btn btn-correct" [disabled]="form.invalid">Crear</button>
+      </div>
+
     </form>
   </div>
 </div>

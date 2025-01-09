@@ -1,22 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
 @import '@angular/cdk/overlay-prebuilt.css';
 
 /* Variables de colores */
 :root {
     --color-primary: #3F51B5; /* Índigo */
     --color-secondary: #E91E63; /* Rosa */
-    --color-tertiary: #FF9800; /* Naranja, para acentos */
+    --color-tertiary: #FF9800; /* Naranja */
     --color-white: #FFFFFF; /* Blanco */
     --color-black: #000000; /* Negro */
-    
-    /* Fondos para temas claro y oscuro */
-    --color-background-light: #F5F5F5; /* Gris claro para fondo en modo claro */
-    --color-background-dark: #121212; /* Gris oscuro para fondo en modo oscuro */
-    --color-surface-light: #FFFFFF; /* Blanco para superficies en modo claro */
-    --color-surface-dark: #1E1E1E; /* Gris oscuro para superficies en modo oscuro */
-    --color-text-light: #424242; /* Gris oscuro para texto en modo claro */
-    --color-text-dark: #E0E0E0; /* Gris claro para texto en modo oscuro */
 
+    /* Fondos y textos para temas claro y oscuro */
+    --color-background-light: #F5F5F5; /* Fondo claro */
+    --color-background-dark: #121212; /* Fondo oscuro */
+    --color-surface-light: #FFFFFF; /* Superficies claras */
+    --color-surface-dark: #1E1E1E; /* Superficies oscuras */
+    --color-text-light: #424242; /* Texto oscuro */
+    --color-text-dark: #E0E0E0; /* Texto claro */
+
+    /* Tamaños de fuente */
     --font-size-small: 12px;
     --font-size-medium: 16px;
     --font-size-large: 20px;
@@ -24,6 +24,7 @@
     --font-size-xxlarge: 35px;
 }
 
+/* Reset y estilos generales */
 *,
 *::before,
 *::after {
@@ -32,16 +33,17 @@
     box-sizing: border-box;
 }
 
-/* Estilos generales */
 html, body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body {
     background-color: var(--color-background-light);
     color: var(--color-text-light);
+}
+
+body.dark-theme {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-dark);
 }
 
 app-root {
@@ -49,56 +51,26 @@ app-root {
     height: 100%;
 }
 
-/* Tema claro */
-body.light-theme {
-    background-color: var(--color-background-light);
-    color: var(--color-text-light);
-}
-
-/* Tema oscuro */
-body.dark-theme {
-    background-color: var(--color-background-dark);
-    color: var(--color-text-dark);
-}
-
-/* Media query para preferencia de sistema */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: var(--color-background-dark);
-        color: var(--color-text-dark);
-    }
-}
-
-ul, ol, li {
+/* Listas y enlaces */
+ul, ol {
     list-style: none;
 }
 
-a, td, th {
+a {
     text-decoration: none;
     color: inherit;
 }
 
+/* Botones y celdas */
 button, th, td {
     background: none;
     border: none;
     cursor: pointer;
 }
 
-/* Estilo para los inputs y textareas */
-input, textarea, select, td, th {
+/* Inputs y textareas */
+input, textarea, select {
     outline: none;
     border: none;
     background: none;
 }
-
-/* Ejemplo de estilos específicos para temas */
-body.light-theme .some-element {
-    background-color: var(--color-surface-light);
-    color: var(--color-text-light);
-}
-
-body.dark-theme .some-element {
-    background-color: var(--color-surface-dark);
-    color: var(--color-text-dark);
-}
-

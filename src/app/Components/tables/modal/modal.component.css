@@ -1,56 +1,124 @@
-/* Estilos para el fondo del modal */
+:host {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  z-index: 1000;
+}
+
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  max-width: 400px;
+  width: 100%;
+  padding: 24px;
+  background-color: var(--color-secondary); /* Fondo blanco */
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  z-index: 1100;
+  animation: fadeIn 0.3s ease-in-out; /* Animación de entrada */
+}
+
+form h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sub-form {
+  width: 100%;
+  display: flex;
+  margin: 5px 0px;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.sub-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.label-style {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  transition: border-color 0.2s ease;
+}
+
+
+.error-message {
+  color: #d93025;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  
-  /* Estilos para el contenido del modal */
-  .modal-content {
-    background-color: #fff; /* Fondo blanco */
-    border-radius: 8px; /* Bordes redondeados */
-    padding: 20px; /* Espaciado interno */
-    max-width: 500px; /* Ancho máximo */
-    width: 90%; /* Ancho relativo para pantallas pequeñas */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
-    text-align: center; /* Centrar contenido */
-    animation: fadeIn 0.3s ease; /* Animación de aparición */
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  /* Animación de entrada del modal */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  /* Estilos para cerrar el modal */
-  .modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #333; /* Color del botón de cierre */
-    transition: color 0.3s ease;
-  }
-  
-  .modal-close:hover {
-    color: #ff5c5c; /* Cambiar color al pasar el ratón */
-  }
-  
+}
+
+
+
+
+.container-btn {
+  display: flex;
+  width: 100%;
+  gap: 5px;
+}
+
+.btn {
+  width: 100%;
+  padding: 13px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: var(--color-background-light);
+  gap: 5px;
+}
+
+.btn-cancel {
+  color: red;
+}
+
+.btn-correct{
+  color: green;
+}
+
+.btn-correct:disabled{
+  background-color: gray;
+  color: #dadce0;
+}
